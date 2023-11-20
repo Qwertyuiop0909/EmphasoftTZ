@@ -1,8 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { styled } from '@material-ui/core/styles'
 import { Confirm } from '../components/Confirm'
-import { AlertProvider } from '../components/Alert'
-import { GlobalLoader } from '../components/GlobalLoader'
 import DashboardNavbar from '../components/Nav/DashboardNavbar'
 
 const MainLayoutRoot = styled('div')(
@@ -41,11 +39,7 @@ const MainLayout = () => (
       <MainLayoutContainer>
         <MainLayoutContent>
           <Confirm>
-            <AlertProvider>
-              <GlobalLoader>
-                <Outlet />
-              </GlobalLoader>
-            </AlertProvider>
+            <Outlet />
           </Confirm>
 
         </MainLayoutContent>

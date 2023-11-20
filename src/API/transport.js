@@ -1,6 +1,6 @@
 import axios from 'axios'
 import TokenStorage from './TokenStorage'
-import { apiUrl } from './environment'
+import apiUrl from './environment'
 
 let transport
 
@@ -14,7 +14,6 @@ export const configureTransport = (token = null) => {
     }
     : { baseURL: apiUrl }
 
-  console.log(options)
   transport = axios.create(options)
   return transport
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
 import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
@@ -57,8 +56,7 @@ const UserList = () => {
         dispatch(setUsers(resp))
         setData(resp)
       })
-      .catch((err) => {
-        console.log(err.response)
+      .catch(() => {
         setUsers([])
         setData([])
       })
@@ -77,8 +75,6 @@ const UserList = () => {
             loadUsers()
           })
           .catch(() => {
-            // console.log("opened")
-            // console.log(e.response)
           })
       },
     })
@@ -175,7 +171,7 @@ const UserList = () => {
                             {user?.username || '---'}
                           </TableCell>
                           <TableCell>
-                            {(`${user?.first_name + (user?.first_name ? ' ' : '')}${user?.last_name}`) || '---'}
+                            {(`${String(user?.first_name) + (user?.first_name ? ' ' : '')}${user?.last_name}`) || '---'}
                           </TableCell>
                           <TableCell>
                             <Box sx={{ display: 'flex', justifyContent: 'end' }}>

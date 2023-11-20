@@ -7,8 +7,7 @@ module.exports = {
   extends: [
     'airbnb',
   ],
-  overrides: [
-  ],
+  overrides: [{ files: ['scr/*//slice.ts'] }],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -32,5 +31,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/require-default-props': [0],
     'no-use-before-define': [0],
+    'no-param-reassign': ['error', { props: false }],
+    'react/forbid-prop-types': 0,
   },
 }

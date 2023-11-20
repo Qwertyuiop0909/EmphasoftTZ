@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import {
@@ -38,11 +36,6 @@ const UserInfo = () => {
           </Button>
           Пользователи
         </Box>
-        <ul className="headerList">
-          <li onClick={() => navigate(-1)}>Пользователи</li>
-          <li>/</li>
-          <li>Информация</li>
-        </ul>
       </Box>
 
       <Box sx={{ backgroundColor: 'background.default', pt: 3, pb: 1 }}>

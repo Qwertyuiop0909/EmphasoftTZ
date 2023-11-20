@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
@@ -29,7 +28,7 @@ const DashboardNavbar = ({ ...rest }) => {
           <Logo />
         </RouterLink>
         <Box sx={{ flexGrow: 1 }} />
-        <IconButton color="inherit" size="large" onClick={onLogOut}>
+        <IconButton color="inherit" size="medium" onClick={onLogOut}>
           <InputIcon />
         </IconButton>
       </Toolbar>

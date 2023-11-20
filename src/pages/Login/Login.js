@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
@@ -42,9 +41,8 @@ const Login = () => {
 
     fetchLogin(dispatch, {
       data,
-      onSuccess: async (data) => {
-        console.log(data)
-        await TokenStorage.setAccessToken(data)
+      onSuccess: async (d) => {
+        await TokenStorage.setAccessToken(d)
 
         await setIsLoaded(false)
         await navigate('/app/users')
@@ -152,7 +150,7 @@ const Login = () => {
                     Sign in now
                   </Button>
                 </Box>
-                {authError ? <Typography style={{ color: 'red' }}>User not found</Typography> : ''}
+                {authError ? <Typography style={{ color: 'red' }}>Ошибка</Typography> : ''}
               </form>
             )}
           </Formik>

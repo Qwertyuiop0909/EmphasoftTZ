@@ -1,7 +1,4 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import {
   Dialog,
@@ -44,16 +41,17 @@ const Confirm = ({ children }) => {
   const [warning, setWarning] = useState('')
   const [onConfirm, setOnConfirm] = useState(() => () => {})
 
+  const val = useMemo(() => ({
+    setOpen,
+    setTitle,
+    setContent,
+    setOnConfirm,
+    setList,
+    setWarning,
+  }), [])
+
   return (
-    <Context.Provider value={{
-      setOpen,
-      setTitle,
-      setContent,
-      setOnConfirm,
-      setList,
-      setWarning,
-    }}
-    >
+    <Context.Provider value={val}>
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
